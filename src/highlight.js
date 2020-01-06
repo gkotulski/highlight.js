@@ -1127,11 +1127,17 @@ https://highlightjs.org/
     hljs.UNDERSCORE_TITLE_MODE,
     hljs.METHOD_GUARD
   ]
+
+  function isObject(obj) {
+    return obj === Object(obj);
+  }
   constants.forEach(function(obj) { deepFreeze(obj); });
 
   // https://github.com/substack/deep-freeze/blob/master/index.js
   function deepFreeze (o) {
-    Object.freeze(o);
+    if(isObject(o))
+    {
+          Object.freeze(o);
 
     Object.getOwnPropertyNames(o).forEach(function (prop) {
       if (o.hasOwnProperty(prop)
@@ -1140,8 +1146,9 @@ https://highlightjs.org/
       && !Object.isFrozen(o[prop])) {
         deepFreeze(o[prop]);
       }
+    
     });
-
+  }
     return o;
   };
 
