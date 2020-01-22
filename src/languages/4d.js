@@ -12,7 +12,7 @@ function(hljs) {
   };
   
   var LITERALS = {
-    className: 'literals',
+    className: 'literal',
     begin: '\\b(False|True|Null|Undefined|NaN|Infinity)',
   };
 
