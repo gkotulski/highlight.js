@@ -1,12 +1,8 @@
 /*
 Language: 4D
-Description: 4D
-Author: GUillaume Kotulski <guillaume.kotulski@4d.com>
-Category: Scripting
+Author: Guillaume Kotulski <guillaume.kotulski@4d.com>
 Website: https://www.4d.com
 */
-
-
 
 function(hljs) {
 
@@ -57,13 +53,11 @@ function(hljs) {
     relevance: 0
   }
 
-
   var VARIABLE_ARRAY = {
     className: 'variable',
     begin: '\\[{2}',
     end: '\\]{2}'
   }
-
 
   var INLINE_COMMENT = hljs.COMMENT('//', '[^\\\\]$');
 
