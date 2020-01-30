@@ -13,13 +13,25 @@ function(hljs) {
   
   var LITERALS = {
     className: 'literal',
-    begin: '\\b(False|True|Null|Undefined|NaN|Infinity)',
+    begin: '\\b(False|True|Null|Undefined|This)',
   };
 
   var FUNCTIONS = {
     className: 'function',
     begin: '([\\w ]+((?=\\()|$))',
     end: '$|(?!\\w|\\s)'
+  }
+
+  var DATE = {
+    className: 'literal',
+    begin: '![0-9]+',
+    end: '!'
+  }
+
+  var HOUR = {
+    className: 'literal',
+    begin: '\\?[0-9]+',
+    end: '\\?'
   }
 
   var NUMBERS = {
@@ -74,6 +86,8 @@ function(hljs) {
       },
       NUMBERS,
       LITERALS,
+      DATE,
+      HOUR,
       KEYWORDS,
       INTERPROCESS_VARIABLE,
       LOCAL_VARIABLE,
