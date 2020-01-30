@@ -1,12 +1,8 @@
 /*
 Language: 4D
-Description: 4D
-Author: GUillaume Kotulski <guillaume.kotulski@4d.com>
-Category: Scripting
+Author: Guillaume Kotulski <guillaume.kotulski@4d.com>
 Website: https://www.4d.com
 */
-
-
 
 function(hljs) {
 
@@ -16,14 +12,26 @@ function(hljs) {
   };
   
   var LITERALS = {
-    className: 'literals',
-    begin: '\\b(False|True|Null|Undefined|NaN|Infinity)',
+    className: 'literal',
+    begin: '\\b(False|True|Null|Undefined|This)',
   };
 
   var FUNCTIONS = {
     className: 'function',
     begin: '([\\w ]+((?=\\()|$))',
     end: '$|(?!\\w|\\s)'
+  }
+
+  var DATE = {
+    className: 'literal',
+    begin: '![0-9]+',
+    end: '!'
+  }
+
+  var HOUR = {
+    className: 'literal',
+    begin: '\\?[0-9]+',
+    end: '\\?'
   }
 
   var NUMBERS = {
@@ -57,13 +65,11 @@ function(hljs) {
     relevance: 0
   }
 
-
   var VARIABLE_ARRAY = {
     className: 'variable',
     begin: '\\[{2}',
     end: '\\]{2}'
   }
-
 
   var INLINE_COMMENT = hljs.COMMENT('//', '[^\\\\]$');
 
@@ -80,6 +86,8 @@ function(hljs) {
       },
       NUMBERS,
       LITERALS,
+      DATE,
+      HOUR,
       KEYWORDS,
       INTERPROCESS_VARIABLE,
       LOCAL_VARIABLE,
